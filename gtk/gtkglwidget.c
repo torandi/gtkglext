@@ -498,6 +498,19 @@ gtk_widget_get_gl_context (GtkWidget *widget)
   return private->glcontext;
 }
 
+void gtk_widget_set_gl_context(GtkWidget* widget, GdkGLContext* context) {
+	GLWidgetPrivate *private;
+
+	g_return_val_if_fail (GTK_IS_WIDGET (widget), NULL);
+
+	private = g_object_get_qdata (G_OBJECT (widget), quark_gl_private);
+	if (private == NULL)
+	  return NULL;
+
+	private->glcontext = context;
+	g_object_ref(G_OBJECT(context));
+}
+
 /**
  * gtk_widget_get_gl_window:
  * @widget: a #GtkWidget.

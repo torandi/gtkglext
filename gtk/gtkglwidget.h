@@ -46,6 +46,7 @@ GdkGLContext *gtk_widget_create_gl_context (GtkWidget    *widget,
                                             int           render_type);
 
 GdkGLContext *gtk_widget_get_gl_context    (GtkWidget    *widget);
+void          gtk_widget_set_gl_context    (GtkWidget    *widget, GdkGLContext* context);
 
 GdkGLWindow  *gtk_widget_get_gl_window     (GtkWidget    *widget);
 
